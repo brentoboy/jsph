@@ -23,6 +23,7 @@ just in case the above description isnt sufficient to get you started, here is s
 ```
 
 the above code would output the following
+
 ```
 	Hello World!
 	Hello node.js!
@@ -30,6 +31,7 @@ the above code would output the following
 ```
 
 ## Example usage in node.js
+
 ```
 	var jsph = require('jsph');
 
