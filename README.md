@@ -35,7 +35,7 @@ the above code would output the following
 ```
 	var jsph = require('jsph');
 
-	console.log(jsph.render("today is <?= new Date().toJSON().slice(0,10) ?>")
+	console.log(jsph.render("today is <?= new Date().toJSON().slice(0,10) ?>"));
 
 	console.log(jsph.renderFileSync('./myfile.jsph'));
 
