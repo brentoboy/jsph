@@ -15,22 +15,22 @@ it also supports <?= ... ?> for easily outputing computed values.
 
 just in case the above description isnt sufficient to get you started, here is some sample jsph:
 
-'''
+```
 <?	var someValues = ["World", "node.js", "jsph"];
 	for(i in someValues) { ?>
 	Hello <?= someValues[i] ?>!
 <?	} ?>
-'''
+```
 
 the above code would output the following
-'''
+```
 	Hello World!
 	Hello node.js!
 	Hello jsph!
-'''
+```
 
 ## Example usage in node.js
-'''
+```
 	var jsph = require('jsph');
 
 	console.log(jsph.render("today is <?= new Date().toJSON().slice(0,10) ?>")
@@ -41,4 +41,4 @@ the above code would output the following
 		if (err) console.log(err);
 		else console.log(ouput);
 	});
-'''
+```
