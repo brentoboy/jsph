@@ -1,15 +1,17 @@
 {
   "author": "Brent Larsen",
   "name": "jsph",
-  "description": "the fusion of php templating syntax with the javascript language into a rediculously simple, native node.js template engine.",
-  "version": "0.1.1",
+  "description": "use php/asp tags with javascript language to produce output from templates",
+  "version": "0.1.2",
   "repository": {
-    "url": ""
+    "type": "git",
+    "url": "git://github.com/brentoboy/jsph.git"
   },
-  "main": "./lib/jsph",
+  "main": "./lib/jsph.js",
   "keywords": [
     "php",
     "js",
+    "asp",
     "template"
   ],
   "bin": {
@@ -18,5 +20,12 @@
   "dependencies": {},
   "engines": {
     "node": "*"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/brentoboy/jsph/issues"
   }
 }
