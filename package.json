@@ -2,7 +2,7 @@
   "author": "Brent Larsen",
   "name": "jsph",
   "description": "use php/asp tags with javascript language to produce output from templates",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "repository": {
     "type": "git",
     "url": "git://github.com/brentoboy/jsph.git"
@@ -16,7 +16,7 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "mocha":             ">= 1.17.1"
+    "mocha": ">= 1.17.1"
   },
   "engines": {
     "node": "*"
