@@ -7,24 +7,24 @@
     "type": "git",
     "url": "git://github.com/brentoboy/jsph.git"
   },
-  "main": "./lib/jsph.js",
+  "main": "./src/jsph.js",
   "keywords": [
     "php",
     "js",
     "asp",
     "template"
   ],
-  "bin": {
-    "jsph": "./bin/jsph"
-  },
   "dependencies": {},
+  "devDependencies": {
+    "mocha":             ">= 1.17.1"
+  },
   "engines": {
     "node": "*"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
-  "license": "BSD-3-Clause",
+  "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/brentoboy/jsph/issues"
   }
