@@ -68,4 +68,30 @@ than calling jsph.render ... which compiles the template on the fly.
 
 ## Example usage in html / js running in a browser window
 
-example comming soon
+NOTE: Only compile() and render() are supported in the browser, the "renerFile" and "renderFileSync" are not supported client side.
+
+	<html>
+		<head>
+			<title>json template sample</title>
+			<script src="../src/jsph.js"></script>
+		<head>
+		<body onload="on_body_load();">
+			<h1> here is some dynamically created content </h1>
+			<div id="target"></div>
+			<script id="template" type="text/template">
+				<ul>
+				<? for (var i = 1; i <= 100; i++) {
+					?><li>entry #<?= i ?><?
+				} ?>
+				<ul>
+			</script>
+			<script type="text/javascript">
+				function on_body_load() {
+					var template = document.getElementById("template").innerHTML;
+					var renderTemplate = jsph.compile(template);
+					var targetDiv = document.getElementById("target");
+					targetDiv.innerHTML = renderTemplate();
+				}
+			</script>
+		</body>
+	</html>

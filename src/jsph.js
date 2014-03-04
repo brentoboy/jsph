@@ -1,7 +1,13 @@
 (function () {
-	var fs = require('fs');
+	var isNodeJs = (typeof module !== 'undefined' && module.exports);
+
+	if (isNodeJs) {
+		var fs = require('fs');
+	}
+
 	var helpers = {};
 	var nullTemplate = function() { return ''; };
+
 	var jsph = {
 		helpers: {},
 
@@ -110,11 +116,11 @@
 	}
 
 	// Node.js
-	if (typeof module !== 'undefined' && module.exports) {
+	if (isNodeJs) {
 		module.exports = jsph;
 	}
 	// included directly via <script> tag
 	else {
-		root.jsph = jsph;
+		window.jsph = jsph;
 	}
 }());
