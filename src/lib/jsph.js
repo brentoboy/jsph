@@ -6,7 +6,7 @@ var compile = function compile(templateString) {
 	var inHtml = /[\?\%]>=?[\s\S]*?<[\?\%]/mgi;
 	var inJs = /<[\?\%]=?[\s\S]*?[\?\%]>/mgi;
 
-	var functionBody = "(function(jhp) { return function(vars) {\n";
+	var functionBody = "(function(jsph) { return function(vars) {\n";
 	functionBody += "  var o = \"\";\n";
 
 	htmlMatch = inHtml.exec(templateString);
