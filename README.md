@@ -29,9 +29,9 @@ just in case the above description isnt sufficient to get you started, here is s
 		else console.log(ouput);
 	});
 
-you can also pass a "vars" object into a template
+you can also pass an object into a template and access it via "this"
 
-	var template = "Hello, <?= vars.name ?>!";
+	var template = "Hello, <?= this.name ?>!";
 	var templateParams = { name: "World"}
 	var output = jsph.render(template, templateParams);
 	console.log(output); // -> "Hello, World!"
@@ -58,7 +58,7 @@ compiling it once and using the compiled version of the template to render rathe
 than calling jsph.render ... which compiles the template on the fly.
 
 	var jsph = require('jsph');
-	var template = "Hello, <?= vars.name ?>!";
+	var template = "Hello, <?= this.name ?>!";
 	var renderTemplate = jsph.compile(template);
 	var output = renderTemplate({ name: "test"});
 	colsole.log(output); // -> "Hello, test!"
