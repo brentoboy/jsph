@@ -21,8 +21,11 @@
 			var inHtml = /[\?\%]>=?[\s\S]*?<[\?\%]/mgi;
 			var inJs = /<[\?\%]=?[\s\S]*?<?[\?\%]>/mgi;
 
-			var functionBody = "(function(jshp) { return function(vars) {\n";
-			functionBody += "  var o = \"\";\n";
+			var functionBody = "\
+(function(jsph) { \n\
+	return function(vars) { \n\
+		return (function() { \n\
+			var o = \"\";\n";
 
 			htmlMatch = inHtml.exec(templateString);
 			jsMatch = inJs.exec(templateString);
@@ -65,8 +68,11 @@
 				}
 			}
 
-			functionBody += " return o;\n";
-			functionBody += "} })(jsph)";
+			functionBody += "\
+			 return o;\n\
+		}).call(vars); \n\
+	} \n\
+})(jsph)";
 			//try {
 				var fn = eval(functionBody);
 				return fn;
@@ -81,8 +87,12 @@
 				if (err) {
 					return callback(err, nullTemplate);
 				}
-				else {
-					return callback(err, jsph.compile(fileContent));
+				try {
+					var result = jsph.compile(fileContent);
+					return callback(null, result);
+				}
+				catch (err) {
+					return callback(err);
 				}
 			});
 		},
@@ -105,7 +115,15 @@
 			}
 
 			jsph.compileFile(file, function(err, renderer) {
-				return callback(err, renderer(vars));
+				if (err) {
+					return callback(err);
+				}
+				try {
+					return callback(null, renderer(vars));
+				}
+				catch (err) {
+					return callback(err);
+				}
 			});
 		},
 

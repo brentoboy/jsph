@@ -1,7 +1,7 @@
 <?
 	// a multi line script tag with a comment in it
-	for(var i in vars.someArray) { ?>
-		Hello, <?= vars.someArray[i] ?>!<?
+	for(var i in this.someArray) { ?>
+		Hello, <?= this.someArray[i] ?>!<?
 	} ?>
 	<?= jsph.helpers.makeDiv({"class": "greeting", "contents":"hi there" }) ?>
 <?

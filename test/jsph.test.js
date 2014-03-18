@@ -72,14 +72,14 @@ describe("jsph", function() {
 			})
 			it("should accept vars and use them", function(done) {
 				var vars = { person1: "brent", person2: "joe" };
-				var template = "<? for(var i in vars) { ?>hi, <?=vars[i]?>.<? } ?>";
+				var template = "<? for(var i in this) { ?>hi, <?=this[i]?>.<? } ?>";
 				var output = jsph.render(template, vars);
 				assert(output == "hi, brent.hi, joe.");
 				return done();
 			})
 			it("should see the jsph object inside of the template", function(done) {
 				var vars = { divOptions: { "class":"test", "contents": "stuff" } };
-				var template = "here is a div: <?= jsph.helpers.makeDiv(vars.divOptions) ?>, I hope you like it."
+				var template = "here is a div: <?= jsph.helpers.makeDiv(this.divOptions) ?>, I hope you like it."
 				var output = jsph.render(template, vars);
 				assert(output == "here is a div: <div class='test'>stuff</div>, I hope you like it.");
 				return done();
@@ -107,7 +107,7 @@ describe("jsph", function() {
 			var vars = { someArray: ["brent","joe"]};
 			jsph.renderFile(__dirname + "/some-totally-non-existant-file.jsph", vars, function(err, output) {
 				assert(err);
-				assert(output === "");
+				assert(!output);
 				return done();
 			});
 		})
